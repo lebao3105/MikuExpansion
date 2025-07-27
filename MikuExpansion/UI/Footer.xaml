@@ -1,0 +1,36 @@
+﻿<Grid
+    x:Class="MikuExpansion.UI.Footer"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:helpers="clr-namespace:MikuExpansion.Helpers"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:MikuExpansion.UI"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    VerticalAlignment="Bottom"
+    mc:Ignorable="d">
+
+    <Grid.Resources>
+        <helpers:BooleanToVisibilityConverter x:Key="boolToViConver"/>
+    </Grid.Resources>
+    
+    <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="*" />
+        <ColumnDefinition Width="*" />
+    </Grid.ColumnDefinitions>
+
+    <Button
+        x:Name="backBtn"
+        Grid.Column="0"
+        Margin="10,0"
+        HorizontalAlignment="Stretch"
+        Click="backBtn_Click"
+        Content="{Binding BackText}" />
+    <Button
+        x:Name="forwardBtn"
+        Grid.Column="1"
+        Margin="10,0"
+        HorizontalAlignment="Stretch"
+        Click="forwardBtn_Click"
+        Content="{Binding ContinueText}"
+        Visibility="{Binding Converter={StaticResource boolToViConver}, ElementName=allowContinuing}" />
+</Grid>

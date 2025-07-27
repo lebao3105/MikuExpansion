@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>me.lebao3105.mikuexpansion</id>
+    <version>1.0.0</version>
+    <title>MikuExpansion</title>
+    <authors>lebao3105</authors>
+    <owners>lebao3105</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>MikuExpansion provides useful C# extensions, classes and controls in order to aid your Windows Phone 8 Silverlight app development.
+
+Some specifically are:
+* Settings class with ability to notify setting listeners;
+* Title bar with ability to switch between titles after a specific duration;
+* Very useful C# object extensions:3</description>
+    <copyright>(C) 2025 lebao3105</copyright>
+    <tags>windows-phone</tags>
+  </metadata>
+</package>
