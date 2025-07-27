@@ -20,7 +20,8 @@ namespace MikuExpansion.Tests
     {
         private sealed class UriIntType : MultiTypeInfo
         {
-            public override IEnumerable<Type> GetTypes() => new Type[] { typeof(Uri), typeof(int) };
+            protected override IEnumerable<Type> GetTypesNoCtor()
+                => new Type[] { typeof(Uri), typeof(int) };
         }
 
         private string TEST_PAGE = "https://lebao3105.github.io";
