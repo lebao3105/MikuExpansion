@@ -1,12 +1,7 @@
 ﻿using System;
-
-#if SILVERLIGHT
 using System.Windows;
 using System.Windows.Controls;
-#else
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
-#endif
+using System.Windows.Threading;
 
 namespace WhatsWin.Widgets
 {

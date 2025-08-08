@@ -47,14 +47,32 @@ namespace MikuExpansion.Internet
 
         public async Task<HttpResponseMessage> RequestFromStringAsync(
             HttpMethod method, string content,
-            Dictionary<string, string> Headers
+            IEnumerable<KeyValuePair<string, string>> headers
         )
         {
             HttpRequestMessage request = new HttpRequestMessage(method, BaseAddress);
-            foreach (var pair in Headers)
+            foreach (var pair in headers)
                 request.Headers.Add(pair.Key, pair.Value);
             return await SendAsync(request);
         }
+
+        public async Task<byte[]> GetByteArrayAsync(
+            HttpMethod method, string content,
+            IEnumerable<KeyValuePair<string, string>> headers
+        ) => await (await RequestFromStringAsync(method, content, headers))
+                .Content.ReadAsByteArrayAsync();
+
+        public async Task<System.IO.Stream> GetStreamAsync(
+            HttpMethod method, string content,
+            IEnumerable<KeyValuePair<string, string>> headers
+        ) => await (await RequestFromStringAsync(method, content, headers))
+                .Content.ReadAsStreamAsync();
+
+        public async Task<string> GetStringAsync(
+            HttpMethod method, string content,
+            IEnumerable<KeyValuePair<string, string>> headers
+        ) => await (await RequestFromStringAsync(method, content, headers))
+                .Content.ReadAsStringAsync();
     }
 
     public static class Extensions

@@ -7,6 +7,7 @@
     <authors>lebao3105</authors>
     <owners>lebao3105</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <projectUrl>https://github.com/lebao3105/MikuExpansion</projectUrl>
     <description>MikuExpansion provides useful C# extensions, classes and controls in order to aid your Windows Phone 8 Silverlight app development.
 
 Some specifically are:
@@ -15,5 +16,14 @@ Some specifically are:
 * Very useful C# object extensions:3</description>
     <copyright>(C) 2025 lebao3105</copyright>
     <tags>windows-phone</tags>
+    <frameworkAssemblies>
+      <frameworkAssembly assemblyName="MikuExpansion" targetFramework="WindowsPhoneApp8.0" />
+      <frameworkAssembly assemblyName="MikuExpansion" targetFramework="WindowsPhoneApp8.1" />
+    </frameworkAssemblies>
   </metadata>
+  <files>
+    <file src="src\Booleans.cs" target="src\Booleans.cs" />
+    <file src="src\Strings.cs" target="src\Strings.cs" />
+    <file src="src\Visibilities.cs" target="src\Visibilities.cs" />
+  </files>
 </package>

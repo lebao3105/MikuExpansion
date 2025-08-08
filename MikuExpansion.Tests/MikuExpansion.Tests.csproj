@@ -154,10 +154,6 @@
       <Project>{5fbea4cb-ab0a-4f37-a344-c35f9abf7dd3}</Project>
       <Name>MikuExpansion.Internet</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MikuExpansion\MikuExpansion.csproj">
-      <Project>{2cb4406d-726c-4017-9231-8cde76b7ce5b}</Project>
-      <Name>MikuExpansion</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).$(TargetFrameworkVersion).Overrides.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).CSharp.targets" />

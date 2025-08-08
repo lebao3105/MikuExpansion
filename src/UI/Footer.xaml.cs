@@ -1,13 +1,7 @@
 ﻿using MikuExpansion.Resources;
 using System.Linq;
-
-#if SILVERLIGHT
 using System.Windows;
 using System.Windows.Controls;
-#else
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
-#endif
 
 namespace MikuExpansion.UI
 {
