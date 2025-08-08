@@ -1,4 +1,6 @@
-﻿using System;
+﻿#if SILVERLIGHT || WINDOWS_PHONE || WINDOWS_PHONE_APP || WINDOWS_UWP
+
+using System;
 using System.Linq;
 
 #if SILVERLIGHT
@@ -99,3 +101,5 @@ namespace MikuExpansion.UI
         }
     }
 }
+
+#endif

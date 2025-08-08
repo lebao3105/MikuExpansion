@@ -5,11 +5,11 @@
     <MinimumVisualStudioVersion>10.0</MinimumVisualStudioVersion>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{0EEBDEF5-3997-4639-B171-5FFDC541B3DD}</ProjectGuid>
+    <ProjectGuid>{6D498BFB-9F2B-455D-A470-0500EB81D67A}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MikuExpansion</RootNamespace>
-    <AssemblyName>MikuExpansion</AssemblyName>
+    <RootNamespace>MikuExpansion.Resources</RootNamespace>
+    <AssemblyName>MikuExpansion.Resources</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -20,7 +20,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\bin\Debug\MikuExpansion</OutputPath>
+    <OutputPath>..\bin\Debug\Resources\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -28,25 +28,25 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>..\bin\Release\MikuExpansion</OutputPath>
+    <OutputPath>..\bin\Release\Resources\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Extensions\Booleans.cs" />
-    <None Include="Extensions\Strings.cs" />
-    <None Include="Extensions\Visibilities.cs" />
-    <None Include="Helpers\BoolToVisibility.cs" />
-    <Compile Include="Helpers\Exceptions.cs" />
-    <Compile Include="Helpers\MultiTypes.cs" />
-    <Compile Include="Helpers\NotNullable.cs" />
-    <None Include="Helpers\Settings.cs" />
+    <!-- A reference to the entire .NET Framework is automatically included -->
+    <EmbeddedResource Include="Strings.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Strings.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <None Include="UI\Footer.xaml.cs" />
-    <None Include="UI\RTextBlock.xaml.cs" />
-    <None Include="UI\TitleBar.xaml.cs" />
-    <None Include="UI\WebLinkButton.cs" />
+    <Compile Include="Strings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Strings.resx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

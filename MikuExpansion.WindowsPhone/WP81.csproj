@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <MinimumVisualStudioVersion>12.0</MinimumVisualStudioVersion>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{0ed3cab7-935a-4d4c-a480-ab7705a7f5ef}</ProjectGuid>
+    <ProjectGuid>{0ED3CAB7-935A-4D4C-A480-AB7705A7F5EF}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>MikuExpansion</RootNamespace>
@@ -15,12 +15,13 @@
     <ProjectTypeGuids>{76F1466A-8B6D-4E39-A767-685A06062A39};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <TargetPlatformIdentifier>WindowsPhoneApp</TargetPlatformIdentifier>
     <TargetPlatformVersion>8.1</TargetPlatformVersion>
+	  <BaseIntermediateOutputPath>obj\WP81\</BaseIntermediateOutputPath>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\..\Bin\Debug\Windows Phone 81\AnyCPU\</OutputPath>
+    <OutputPath>..\Bin\Debug\Windows Phone 81\</OutputPath>
     <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_PHONE_APP;WINDOWS_PHONE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -28,7 +29,7 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>..\..\Bin\Release\Windows Phone 81\AnyCPU\</OutputPath>
+    <OutputPath>..\Bin\Release\Windows Phone 81\</OutputPath>
     <DefineConstants>TRACE;NETFX_CORE;WINDOWS_PHONE_APP;WINDOWS_PHONE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -44,7 +45,7 @@
     <Compile Include="..\MikuExpansion\UI\TitleBar.xaml.cs">
       <DependentUpon>UI/TitleBar.xaml</DependentUpon>
     </Compile>
-    <Compile Include="..\MikuExpansion\UI\WebLinkButton.cs"/>
+    <Compile Include="..\MikuExpansion\UI\WebLinkButton.cs" />
   </ItemGroup>
   <ItemGroup>
     <Page Include="UI\Footer.xaml">
@@ -61,17 +62,26 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\MikuExpansion\Extensions\Booleans.cs" />
+    <!--<Compile Include="..\MikuExpansion\Extensions\Booleans.cs" />-->
     <Compile Include="..\MikuExpansion\Extensions\Strings.cs" />
     <Compile Include="..\MikuExpansion\Extensions\Visibilities.cs" />
     <Compile Include="..\MikuExpansion\Helpers\BoolToVisibility.cs" />
-    <Compile Include="..\MikuExpansion\Helpers\Exceptions.cs" />
+    <!--<Compile Include="..\MikuExpansion\Helpers\Exceptions.cs" />
     <Compile Include="..\MikuExpansion\Helpers\MultiTypes.cs" />
-    <Compile Include="..\MikuExpansion\Helpers\NotNullable.cs" />
+    <Compile Include="..\MikuExpansion\Helpers\NotNullable.cs" />-->
     <Compile Include="..\MikuExpansion\Helpers\Settings.cs" />
   </ItemGroup>
-  <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).$(TargetFrameworkVersion).Overrides.targets" />
-  <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).CSharp.targets" />
+  <ItemGroup>
+    <ProjectReference Include="..\Resources\Resources.csproj">
+      <Project>{6d498bfb-9f2b-455d-a470-0500eb81d67a}</Project>
+      <Name>Resources</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MikuExpansion\MikuExpansion.csproj">
+      <Project>{0EEBDEF5-3997-4639-B171-5FFDC541B3DD}</Project>
+      <Name>MikuExpansion</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
   <ProjectExtensions />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

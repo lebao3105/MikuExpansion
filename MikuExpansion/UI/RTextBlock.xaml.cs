@@ -1,14 +1,17 @@
-﻿using System;
+﻿#if SILVERLIGHT || WINDOWS_PHONE || WINDOWS_PHONE_APP || WINDOWS_UWP
+
+using System;
 
 #if SILVERLIGHT
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Threading;
 #else
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 #endif
 
-namespace WhatsWin.Widgets
+namespace MikuExpansion.UI
 {
     public partial class RTextBlock : UserControl
     {
@@ -51,3 +54,5 @@ namespace WhatsWin.Widgets
         }
     }
 }
+
+#endif

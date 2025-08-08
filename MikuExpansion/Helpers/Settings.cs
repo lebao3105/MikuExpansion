@@ -1,19 +1,32 @@
 ﻿using MikuExpansion.Extensions;
 using System.ComponentModel;
-using System.IO.IsolatedStorage;
 using System.Runtime.CompilerServices;
+
+#if SILVERLIGHT
+using System.Windows;
+using System.IO.IsolatedStorage;
+#elif WINDOWS_PHONE_APP || WINDOWS_UWP
+using Windows.UI.Xaml;
+using Windows.Storage;
+#endif
 
 namespace MikuExpansion.Helpers
 {
+#if SILVERLIGHT || WINDOWS_PHONE || WINDOWS_PHONE_APP || WINDOWS_UWP
     /// <summary>
     /// Class for your application settings.
     /// </summary>
     public class Settings : INotifyPropertyChanged
     {
+#if SILVERLIGHT
         private static IsolatedStorageSettings localSettings
                     = IsolatedStorageSettings.ApplicationSettings;
+#else
+        private static ApplicationDataContainer localSettings =
+                    ApplicationData.Current.LocalSettings;
+#endif
 
-        public static Settings Instance;
+        public static Settings Instance { get; private set; }
 
         /// <summary>
         /// The event that gets raised when a setting, in YOUR
@@ -64,11 +77,15 @@ namespace MikuExpansion.Helpers
             if (value.Equals(GetSetting<T>(key)))
                 return;
 
-            if (notifyListeners)
-                OnPropertyChanged(propertyName.HasContent() ? propertyName : key);
-
+#if SILVERLIGHT
             localSettings[key] = value;
             localSettings.Save();
+#else
+            localSettings.Values[key] = value;
+#endif
+
+            if (notifyListeners)
+                OnPropertyChanged(propertyName.HasContent() ? propertyName : key);
         }
 
         /// <summary>
@@ -89,14 +106,32 @@ namespace MikuExpansion.Helpers
             => SetSetting<object>(key, value, notifyListeners, propertyName);
 
         public T GetSetting<T>(string key)
-            => localSettings.Contains(key) ? (T)localSettings[key] : default(T);
+        {
+            try
+            {
+#if !SILVERLIGHT
+                return Exists(key) ? (T)localSettings.Values[key] : default(T);
+#else
+                return Exists(key) ? (T)localSettings[key] : default(T);
+#endif
+            }
+            catch
+            {
+                return default(T);
+            }
+        }
 
         /// <summary>
         /// Checks if the specified key exists in the preference database.
         /// </summary>
         /// <param name="key"></param>
         /// <returns>True if there is a setting with the specified key, otherwise False.</returns>
-        public bool Exists(string key) => localSettings.Contains(key);
+        public bool Exists(string key) =>
+#if SILVERLIGHT
+            localSettings.Contains(key);
+#else
+            localSettings.Values.ContainsKey(key);
+#endif
 
         private void OnPropertyChanged(params string[] propertyNames)
         {
@@ -104,4 +139,5 @@ namespace MikuExpansion.Helpers
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
-}
+#endif
+            }

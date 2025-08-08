@@ -1,4 +1,7 @@
-﻿using MikuExpansion.Resources;
+﻿#if SILVERLIGHT || WINDOWS_PHONE || WINDOWS_PHONE_APP || WINDOWS_UWP
+
+using MikuExpansion.Extensions;
+using static MikuExpansion.Resources.Strings; // worst practice
 using System.Linq;
 
 #if SILVERLIGHT
@@ -16,7 +19,7 @@ namespace MikuExpansion.UI
     /// </summary>
     public sealed partial class Footer : Grid
     {
-        #region Click events
+#region Click events
         public delegate void OnBackPushDlg();
         public delegate void OnForwardPushDlg();
 
@@ -39,9 +42,9 @@ namespace MikuExpansion.UI
         /// </summary>
         /// <seealso cref="OnBackPush"/>
         public event OnForwardPushDlg OnForwardPush;
-        #endregion
+#endregion
 
-        #region DependencyProperties
+#region DependencyProperties
         public static DependencyProperty quitInsteadOfBackProperty =
             DependencyProperty.Register("quitInsteadOfBack", typeof(bool), typeof(Footer), new PropertyMetadata(false));
 
@@ -52,10 +55,10 @@ namespace MikuExpansion.UI
             DependencyProperty.Register("BackText", typeof(string), typeof(Footer), new PropertyMetadata(null));
 
         public static DependencyProperty ContinueTextProperty =
-            DependencyProperty.Register("ContinueText", typeof(string), typeof(Footer), new PropertyMetadata(Strings.Forward));
-        #endregion
+            DependencyProperty.Register("ContinueText", typeof(string), typeof(Footer), new PropertyMetadata(Forward));
+#endregion
 
-        #region Properties
+#region Properties
         /// <summary>
         /// Indicates whether the application should quit instead of
         /// going back to the previous page. Also changes the back
@@ -69,9 +72,9 @@ namespace MikuExpansion.UI
             {
                 SetValue(quitInsteadOfBackProperty, value);
                 // User defined string
-                if (!new string[] { Strings.Back, Strings.Quit }.Contains(BackText))
+                if (!new string[] { Back, Quit }.Contains(BackText))
                     return;
-                BackText = value ? Strings.Quit : Strings.Back;
+                BackText = value ? Quit : Back;
             }
         }
 
@@ -81,7 +84,10 @@ namespace MikuExpansion.UI
         public bool allowContinuing
         {
             get { return (bool)GetValue(allowContinuingProperty); }
-            set { SetValue(allowContinuingProperty, value); }
+            set {
+                SetValue(allowContinuingProperty, value);
+                forwardBtn.Visibility = value.ToVisibility(); // TODO: Never have to do this anymore
+            }
         }
 
         public string BackText
@@ -95,7 +101,7 @@ namespace MikuExpansion.UI
             get { return (string)GetValue(ContinueTextProperty); }
             set { SetValue(ContinueTextProperty, value); }
         }
-        #endregion
+#endregion
 
         public Footer()
         {
@@ -114,3 +120,5 @@ namespace MikuExpansion.UI
         }
     }
 }
+
+#endif

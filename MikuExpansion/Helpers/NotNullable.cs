@@ -3,6 +3,7 @@
 namespace MikuExpansion.Helpers
 {
     public struct NotNullable<T>
+        where T : class
     {
         public T Value { get; private set; }
 

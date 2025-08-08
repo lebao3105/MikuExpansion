@@ -1,4 +1,8 @@
-﻿using System.Windows;
+﻿#if SILVERLIGHT
+using System.Windows;
+#elif WINDOWS_STORE || WINDOWS_PHONE_APP || WINDOWS_UWP
+using Windows.UI.Xaml;
+#endif
 
 namespace MikuExpansion.Extensions
 {
@@ -18,25 +22,7 @@ namespace MikuExpansion.Extensions
         /// <param name="self"></param>
         /// <returns></returns>
         public static char OneAsCharIfTrue(this bool self) => self ? '1' : '0';
-
-        /// <summary>
-        /// Returns <see cref="Visibility.Visible"/> if
-        /// <paramref name="self"/> is true.
-        /// </summary>
-        /// <param name="self"></param>
-        /// <returns></returns>
-        public static Visibility ToVisibility(this bool self)
-            => self ? Visibility.Visible : Visibility.Collapsed;
-
-        /// <summary>
-        /// Returns <see cref="Visibility.Visible"/> if
-        /// <paramref name="self"/> is true.
-        /// </summary>
-        /// <param name="self"></param>
-        /// <returns></returns>
-        public static Visibility ToVisibility(this bool? self)
-            => self == true ? Visibility.Visible : Visibility.Collapsed;
-
+        
         /// <summary>
         /// Returns !<paramref name="self"/>. Notice the exclaimation mark.
         /// </summary>

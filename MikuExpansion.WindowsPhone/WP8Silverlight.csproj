@@ -18,12 +18,13 @@
     <ValidateXaml>true</ValidateXaml>
     <MinimumVisualStudioVersion>11.0</MinimumVisualStudioVersion>
     <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
+	  <BaseIntermediateOutputPath>$(MSBuildThisFileDirectory)obj\WP80\</BaseIntermediateOutputPath>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\..\Bin\Debug\Windows Phone 80\AnyCPU\</OutputPath>
+    <OutputPath>..\Bin\Debug\Windows Phone 80\</OutputPath>
     <DefineConstants>DEBUG;TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
     <NoStdLib>true</NoStdLib>
     <NoConfig>true</NoConfig>
@@ -33,7 +34,7 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>..\..\Bin\Release\Windows Phone 80\AnyCPU\</OutputPath>
+    <OutputPath>..\Bin\Release\Windows Phone 80\</OutputPath>
     <DefineConstants>TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
     <NoStdLib>true</NoStdLib>
     <NoConfig>true</NoConfig>
@@ -51,7 +52,7 @@
     <Compile Include="..\MikuExpansion\UI\TitleBar.xaml.cs">
       <DependentUpon>UI/TitleBar.xaml</DependentUpon>
     </Compile>
-    <Compile Include="..\MikuExpansion\UI\WebLinkButton.cs"/>
+    <Compile Include="..\MikuExpansion\UI\WebLinkButton.cs" />
   </ItemGroup>
   <ItemGroup>
     <Page Include="UI\Footer.xaml">
@@ -68,14 +69,24 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\MikuExpansion\Extensions\Booleans.cs" />
+    <!--<Compile Include="..\MikuExpansion\Extensions\Booleans.cs" />-->
     <Compile Include="..\MikuExpansion\Extensions\Strings.cs" />
     <Compile Include="..\MikuExpansion\Extensions\Visibilities.cs" />
     <Compile Include="..\MikuExpansion\Helpers\BoolToVisibility.cs" />
-    <Compile Include="..\MikuExpansion\Helpers\Exceptions.cs" />
+    <!--<Compile Include="..\MikuExpansion\Helpers\Exceptions.cs" />
     <Compile Include="..\MikuExpansion\Helpers\MultiTypes.cs" />
-    <Compile Include="..\MikuExpansion\Helpers\NotNullable.cs" />
+    <Compile Include="..\MikuExpansion\Helpers\NotNullable.cs" />-->
     <Compile Include="..\MikuExpansion\Helpers\Settings.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Resources\Resources.csproj">
+      <Project>{6d498bfb-9f2b-455d-a470-0500eb81d67a}</Project>
+      <Name>Resources</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MikuExpansion\MikuExpansion.csproj">
+      <Project>{0EEBDEF5-3997-4639-B171-5FFDC541B3DD}</Project>
+      <Name>MikuExpansion</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).$(TargetFrameworkVersion).Overrides.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).CSharp.targets" />

@@ -1,4 +1,6 @@
-﻿using System;
+﻿#if SILVERLIGHT || WINDOWS_PHONE || WINDOWS_PHONE_APP || WINDOWS_UWP
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,9 +24,9 @@ namespace MikuExpansion.UI
         }
 
         private
-            #if !SILVERLIGHT
+#if !SILVERLIGHT // Better: Ignore C# compiler warning
             async
-            #endif
+#endif
             void WebLinkButton_Click(object sender, RoutedEventArgs e)
         {
 #if SILVERLIGHT
@@ -38,3 +40,5 @@ namespace MikuExpansion.UI
         }
     }
 }
+
+#endif

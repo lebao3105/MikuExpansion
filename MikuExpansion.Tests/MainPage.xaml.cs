@@ -41,7 +41,6 @@ namespace MikuExpansion.Tests
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             uritest = new MultiType<UriIntType>();
-            PopulateTests();
         }
 
         private void PopulateTests()

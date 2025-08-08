@@ -1,7 +1,12 @@
-﻿using System.Windows;
+﻿#if SILVERLIGHT
+using System.Windows;
+#elif WINDOWS_PHONE_APP || WINDOWS_UWP
+using Windows.UI.Xaml;
+#endif
 
 namespace MikuExpansion.Extensions
 {
+#if SILVERLIGHT || WINDOWS_PHONE || WINDOWS_PHONE_APP || WINDOWS_UWP
     public static class Visibilities
     {
         /// <summary>
@@ -36,5 +41,26 @@ namespace MikuExpansion.Extensions
             foreach (var self in selfs)
                 self.Visibility = setTo;
         }
+        
+#if SILVERLIGHT || WINDOWS_PHONE || WINDOWS_PHONE_APP || WINDOWS_UWP
+        /// <summary>
+        /// Returns <see cref="Visibility.Visible"/> if
+        /// <paramref name="self"/> is true.
+        /// </summary>
+        /// <param name="self"></param>
+        /// <returns></returns>
+        public static Visibility ToVisibility(this bool self)
+            => self ? Visibility.Visible : Visibility.Collapsed;
+
+        /// <summary>
+        /// Returns <see cref="Visibility.Visible"/> if
+        /// <paramref name="self"/> is true.
+        /// </summary>
+        /// <param name="self"></param>
+        /// <returns></returns>
+        public static Visibility ToVisibility(this bool? self)
+            => self == true ? Visibility.Visible : Visibility.Collapsed;
+#endif
     }
+#endif
 }
