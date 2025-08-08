@@ -22,8 +22,5 @@ Some specifically are:
     </frameworkAssemblies>
   </metadata>
   <files>
-    <file src="src\Booleans.cs" target="src\Booleans.cs" />
-    <file src="src\Strings.cs" target="src\Strings.cs" />
-    <file src="src\Visibilities.cs" target="src\Visibilities.cs" />
   </files>
 </package>

@@ -154,6 +154,10 @@
       <Project>{5fbea4cb-ab0a-4f37-a344-c35f9abf7dd3}</Project>
       <Name>MikuExpansion.Internet</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MikuExpansion.WindowsPhone\WP81.csproj">
+      <Project>{7AEA238D-868F-4FCA-A26A-8C0B63D866EF}</Project>
+      <Name>MikuExpansion.WindowsPhone80</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).$(TargetFrameworkVersion).Overrides.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).CSharp.targets" />

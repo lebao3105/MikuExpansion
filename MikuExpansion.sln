@@ -12,7 +12,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MikuExpansion.Internet", "M
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MikuExpansion.Tests", "MikuExpansion.Tests\MikuExpansion.Tests.csproj", "{8C5368D4-DEB3-4A27-AC6C-89D060ABACB3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MikuExpansion.WindowsPhoneSilverlight", "MikuExpansion.WindowsPhoneSilverlight\MikuExpansion.WindowsPhoneSilverlight.csproj", "{7AEA238D-868F-4FCA-A26A-8C0B63D866EF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MikuExpansion.WP80", "MikuExpansion.WindowsPhone\WP8Silverlight.csproj", "{7AEA238D-868F-4FCA-A26A-8C0B63D866EF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MikuExpansion.WP81", "MikuExpansion.WindowsPhone\WP81.csproj", "{0ed3cab7-935a-4d4c-a480-ab7705a7f5ef}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MikuExpansion", "MikuExpansion\MikuExpansion.csproj", "{0EEBDEF5-3997-4639-B171-5FFDC541B3DD}"
 EndProject

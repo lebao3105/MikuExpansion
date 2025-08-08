@@ -1,4 +1,4 @@
-﻿using System.Reflection;
+using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Resources;
@@ -6,11 +6,11 @@ using System.Resources;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("MikuExpansion.WindowsPhoneSilverlight")]
+[assembly: AssemblyTitle("MikuExpansion.WindowsPhone")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("MikuExpansion.WindowsPhoneSilverlight")]
+[assembly: AssemblyProduct("MikuExpansion.WindowsPhone")]
 [assembly: AssemblyCopyright("Copyright ©  2025")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -21,7 +21,7 @@ using System.Resources;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("7aea238d-868f-4fca-a26a-8c0b63d866ef")]
+[assembly: Guid("0ed3cab7-935a-4d4c-a480-ab7705a7f5ef")]
 
 // Version information for an assembly consists of the following four values:
 //
