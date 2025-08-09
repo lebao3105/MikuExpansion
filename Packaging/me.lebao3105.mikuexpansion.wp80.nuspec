@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>me.lebao3105.mikuexpansion.wp80</id>
+    <version>1.0.0</version>
+    <title>MikuExpansion (Windows Phone 8.0 w/ Silverlight)</title>
+    <authors>lebao3105</authors>
+    <owners>lebao3105</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <projectUrl>https://github.com/lebao3105/MikuExpansion</projectUrl>
+    <description>MikuExpansion provides useful C# extensions and classes, aiming for a more declarative code(?)</description>
+    <summary>Miku in your code!</summary>
+    <copyright>(C) 2025 lebao3105</copyright>
+    <tags>windows-phone, net45, silverlight</tags>
+    <frameworkAssemblies>
+      <frameworkAssembly assemblyName="MikuExpansion" targetFramework=".NETPortable0.0-Profile344" />
+    </frameworkAssemblies>
+	<dependencies>
+			<group targetFramework="WindowsPhone8.0">
+        <dependency id="me.lebao3105.mikuexpansion" version="1.0.0" />
+      </group>
+		</dependencies>
+  </metadata>
+	<files>
+		<file src="..\Bin\Release\Windows Phone 80\MikuExpansion.WindowsPhone.dll" target="lib\wpa81\MikuExpansion.WindowsPhone.dll"/>
+		<file src="..\Bin\Release\Windows Phone 80\MikuExpansion.Resources.dll" target="lib\wpa81\MikuExpansion.Resources.dll"/>
+		<file src="..\Bin\Release\Windows Phone 80\MikuExpansion.WindowsPhone.pdb" target="lib\wpa81\MikuExpansion.WindowsPhone.pdb"/>
+		<file src="..\Bin\Release\Windows Phone 80\MikuExpansion.Resources.pdb" target="lib\wpa81\MikuExpansion.Resources.pdb"/>
+	</files>
+</package>
