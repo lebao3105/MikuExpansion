@@ -27,9 +27,9 @@
 		<file src="..\Bin\Release\Windows Phone 81\MikuExpansion.WindowsPhone.pdb" target="lib\wpa81\MikuExpansion.WindowsPhone.pdb"/>
 		<file src="..\Bin\Release\Windows Phone 81\MikuExpansion.Resources.pdb" target="lib\wpa81\MikuExpansion.Resources.pdb"/>
 		<file src="..\Bin\Release\Windows Phone 81\MikuExpansion.WindowsPhone.pri" target="lib\wpa81\MikuExpansion.WindowsPhone.pri"/>
-		<file src="..\Bin\Release\Windows Phone 81\MikuExpansion.WindowsPhone.xr.xml" target="lib\wpa81\MikuExpansion.WindowsPhone.xr.xml"/>
-		<file src="..\Bin\Release\Windows Phone 81\UI\Footer.xbf" target="lib\wpa81\UI\Footer.xbf"/>
-		<file src="..\Bin\Release\Windows Phone 81\UI\RTextBlock.xbf" target="lib\wpa81\UI\RTextBlock.xbf"/>
-		<file src="..\Bin\Release\Windows Phone 81\UI\TitleBar.xbf" target="lib\wpa81\UI\TitleBar.xbf"/>
+		<file src="..\Bin\Release\Windows Phone 81\MikuExpansion.WindowsPhone.xr.xml" target="lib\wpa81\MikuExpansion.WindowsPhone\MikuExpansion.WindowsPhone.xr.xml"/>
+		<file src="..\Bin\Release\Windows Phone 81\UI\Footer.xbf" target="lib\wpa81\MikuExpansion.WindowsPhone\UI\Footer.xbf"/>
+		<file src="..\Bin\Release\Windows Phone 81\UI\RTextBlock.xbf" target="lib\wpa81\MikuExpansion.WindowsPhone\UI\RTextBlock.xbf"/>
+		<file src="..\Bin\Release\Windows Phone 81\UI\TitleBar.xbf" target="lib\wpa81\MikuExpansion.WindowsPhone\UI\TitleBar.xbf"/>
 	</files>
 </package>
