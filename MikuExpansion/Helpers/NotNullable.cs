@@ -20,5 +20,13 @@ namespace MikuExpansion.Helpers
                 throw new ArgumentNullException();
             Value = val;
         }
+
+        public static explicit operator NotNullable<T>(T val)
+            => new NotNullable<T>(val);
+
+        public static explicit operator T(NotNullable<T> from) => from.Value;
+
+        public override string ToString()
+            => Value.ToString();
     }
 }

@@ -39,6 +39,7 @@
     <None Include="Extensions\Visibilities.cs" />
     <None Include="Helpers\BoolToVisibility.cs" />
     <Compile Include="Helpers\Exceptions.cs" />
+    <Compile Include="Helpers\FSLikeOperations.cs" />
     <Compile Include="Helpers\MultiTypes.cs" />
     <Compile Include="Helpers\NotNullable.cs" />
     <None Include="Helpers\Settings.cs" />
