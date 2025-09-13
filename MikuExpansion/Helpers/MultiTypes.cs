@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Linq.Expressions;
 using System.Reflection;
 
 namespace MikuExpansion.Helpers
@@ -24,7 +23,7 @@ namespace MikuExpansion.Helpers
         /// If you do not want to specify Types only, use <see cref="TypesWithoutConstructors"/>.
         /// Do not override this. Override <see cref="GetTypes"/> instead.
         /// </summary>
-        public TypeAndCtorDictionary Types { get { return GetTypes(); } }
+        public TypeAndCtorDictionary Types => GetTypes();
 
         /// <summary>
         /// <see cref="Type"/>s, including or excluding (recommend you to exclude) their derived types,
@@ -32,14 +31,14 @@ namespace MikuExpansion.Helpers
         /// If you want to specify how instances can be constructed too, use <see cref="Types"/>.
         /// Do not override this. Override <see cref="GetTypesNoCtor"/> instead.
         /// </summary>
-        public IEnumerable<Type> TypesWithoutConstructors { get { return GetTypesNoCtor(); } }
+        public IEnumerable<Type> TypesWithoutConstructors => GetTypesNoCtor();
 
         /// <summary>
         /// Specifies whether types derived from any of the specified <see cref="Types"/>
         /// are allowed to use in <see cref="MultiType{I}.Set(object)"/> and such.
         /// Override <see cref="GetAllowSubTypes"/> instead of this.
         /// </summary>
-        public bool AllowSubTypes { get { return GetAllowSubTypes(); } }
+        public bool AllowSubTypes => GetAllowSubTypes();
 
         protected virtual TypeAndCtorDictionary GetTypes() => null;
         protected virtual IEnumerable<Type> GetTypesNoCtor() => null;
@@ -69,8 +68,7 @@ namespace MikuExpansion.Helpers
     /// Derives <see cref="MultiTypeInfo"/> and has a constructor with no parameters.
     /// The instance will be assigned once, won't be updated by any means.
     /// </typeparam>
-    public sealed class MultiType<I>
-        where I : MultiTypeInfo, new()
+    public sealed class MultiType<I> where I : MultiTypeInfo, new()
     {
         private object Value;
         private NotNullable<I> Info;
@@ -97,11 +95,11 @@ namespace MikuExpansion.Helpers
 
         public MultiType(object value) : this() { Set(value); }
 
-        public MultiType(NotNullable<I> info) { this.Info = info; }
+        public MultiType(NotNullable<I> i) { Info = i; }
 
         public MultiType(object value, NotNullable<I> info)
         {
-            this.Info = info;
+            Info = info;
             Set(value);
         }
 
@@ -128,20 +126,16 @@ namespace MikuExpansion.Helpers
             // return the casted value
             if (GetValueType().Equals(target))
                 return (T)Value;
+            
+            if (Info.Value.Types != null &&
+                Info.Value.Types.Any(p => IsTypePresent(target, p.Key)))
+                return (T)Value;
 
-            // Care the types dictionary first.
-            try
-            {
-                return (T)Info.Value.Types.FirstOrDefault(
-                    t => IsTypePresent(target, t.Key)).Value.Invoke(Value);
-            }
-            catch
-            {
-                if (Info.Value.TypesWithoutConstructors.Any(t => IsTypePresent(target, t)))
-                    return (T)Value;
+            if (Info.Value.TypesWithoutConstructors != null &&
+                Info.Value.TypesWithoutConstructors.Any(p => IsTypePresent(target, p)))
+                return (T)Value;
 
-                throw new Exception($"The provided object's type does not match with any of the provided types");
-            }
+            throw new Exception($"Unknown type for MultiType value: {target.FullName}");
         }
 
         public void Set(object value)
@@ -149,7 +143,19 @@ namespace MikuExpansion.Helpers
             if (value.Equals(Value))
                 return;
 
-            if (Info.Value.Types.Any(t => IsTypePresent(value.GetType(), t.Key)))
+            if (Info.Value.Types == null &&
+                Info.Value.TypesWithoutConstructors == null)
+                throw new NullReferenceException("Unspecified types.");
+
+            if (Info.Value.Types != null &&
+                Info.Value.Types.Any(t => IsTypePresent(value.GetType(), t.Key)))
+            {
+                Value = value;
+                return;
+            }
+
+            if (Info.Value.TypesWithoutConstructors != null &&
+                Info.Value.TypesWithoutConstructors.Any(p => IsTypePresent(value.GetType(), p)))
             {
                 Value = value;
                 return;

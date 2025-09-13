@@ -14,7 +14,7 @@ namespace MikuExpansion.Extensions
         public static bool HasContent(this string self) => !string.IsNullOrWhiteSpace(self);
 
 #if SILVERLIGHT || WINDOWS_PHONE || WINDOWS_PHONE_APP || WINDOWS_UWP
-        public static T GetSetting<T>(this string self) => Helpers.Settings.Instance.GetSetting<T>(self);
+        public static T GetSetting<T>(this string self) => Helpers.SettingEntry<T>.GetSetting<T>(self);
 
         public static T GetAppResource<T>(this string self)
         {

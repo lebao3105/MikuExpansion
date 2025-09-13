@@ -15,7 +15,7 @@
     <ProjectTypeGuids>{76F1466A-8B6D-4E39-A767-685A06062A39};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <TargetPlatformIdentifier>WindowsPhoneApp</TargetPlatformIdentifier>
     <TargetPlatformVersion>8.1</TargetPlatformVersion>
-	  <BaseIntermediateOutputPath>obj\WP81\</BaseIntermediateOutputPath>
+    <BaseIntermediateOutputPath>obj\WP81\</BaseIntermediateOutputPath>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -37,13 +37,13 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfos\WP81.cs" />
     <Compile Include="..\MikuExpansion\UI\Footer.xaml.cs">
-      <DependentUpon>UI/Footer.xaml</DependentUpon>
+      <DependentUpon>$(MSBuildThisFileDirectory)UI\Footer.xaml</DependentUpon>
     </Compile>
     <Compile Include="..\MikuExpansion\UI\RTextBlock.xaml.cs">
-      <DependentUpon>UI/RTextBlock.xaml</DependentUpon>
+      <DependentUpon>$(MSBuildThisFileDirectory)UI\RTextBlock.xaml</DependentUpon>
     </Compile>
     <Compile Include="..\MikuExpansion\UI\TitleBar.xaml.cs">
-      <DependentUpon>UI/TitleBar.xaml</DependentUpon>
+      <DependentUpon>$(MSBuildThisFileDirectory)UI\TitleBar.xaml</DependentUpon>
     </Compile>
     <Compile Include="..\MikuExpansion\UI\WebLinkButton.cs" />
   </ItemGroup>
@@ -62,13 +62,13 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <!--<Compile Include="..\MikuExpansion\Extensions\Booleans.cs" />-->
+    <Compile Include="..\MikuExpansion\Extensions\Booleans.cs" />
     <Compile Include="..\MikuExpansion\Extensions\Strings.cs" />
     <Compile Include="..\MikuExpansion\Extensions\Visibilities.cs" />
     <Compile Include="..\MikuExpansion\Helpers\BoolToVisibility.cs" />
-    <!--<Compile Include="..\MikuExpansion\Helpers\Exceptions.cs" />
+    <Compile Include="..\MikuExpansion\Helpers\Exceptions.cs" />
     <Compile Include="..\MikuExpansion\Helpers\MultiTypes.cs" />
-    <Compile Include="..\MikuExpansion\Helpers\NotNullable.cs" />-->
+    <Compile Include="..\MikuExpansion\Helpers\NotNullable.cs" />
     <Compile Include="..\MikuExpansion\Helpers\Settings.cs" />
     <Compile Include="..\MikuExpansion\Helpers\FSLikeOperations.cs" />
   </ItemGroup>
@@ -76,10 +76,6 @@
     <ProjectReference Include="..\Resources\Resources.csproj">
       <Project>{6d498bfb-9f2b-455d-a470-0500eb81d67a}</Project>
       <Name>Resources</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MikuExpansion\MikuExpansion.csproj">
-      <Project>{0EEBDEF5-3997-4639-B171-5FFDC541B3DD}</Project>
-      <Name>MikuExpansion</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
