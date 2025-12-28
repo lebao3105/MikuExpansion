@@ -1,6 +1,6 @@
 ﻿#if SILVERLIGHT
 using System.Windows;
-#elif WINDOWS_PHONE_APP || WINDOWS_UWP
+#elif WINDOWS_RT || WINDOWS_APP
 using Windows.UI.Xaml;
 #endif
 
@@ -13,7 +13,7 @@ namespace MikuExpansion.Extensions
         /// </summary>
         public static bool HasContent(this string self) => !string.IsNullOrWhiteSpace(self);
 
-#if SILVERLIGHT || WINDOWS_PHONE || WINDOWS_PHONE_APP || WINDOWS_UWP
+#if SILVERLIGHT || WINDOWS_RT || WINDOWS_UWP
         public static T GetSetting<T>(this string self) => Helpers.SettingEntry<T>.GetSetting<T>(self);
 
         public static T GetAppResource<T>(this string self)
@@ -27,5 +27,5 @@ namespace MikuExpansion.Extensions
             return default(T);
         }
 #endif
-        }
+    }
 }

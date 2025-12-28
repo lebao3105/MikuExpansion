@@ -1,10 +1,6 @@
-﻿#if SILVERLIGHT || WINDOWS_PHONE || WINDOWS_PHONE_APP || WINDOWS_UWP
+﻿#if SILVERLIGHT || WINDOWS_RT || WINDOWS_UWP
 
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 #if SILVERLIGHT
 using System.Windows;

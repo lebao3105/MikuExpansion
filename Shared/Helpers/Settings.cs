@@ -1,10 +1,10 @@
-﻿#if SILVERLIGHT || WINDOWS_PHONE || WINDOWS_PHONE_APP || WINDOWS_UWP
+﻿#if SILVERLIGHT || WINDOWS_RT || WINDOWS_UWP
 using System.ComponentModel;
 
 #if SILVERLIGHT
 using System.Windows;
 using System.IO.IsolatedStorage;
-#elif WINDOWS_PHONE_APP || WINDOWS_UWP
+#else
 using Windows.Storage;
 using Windows.UI.Xaml.Data;
 #endif

@@ -82,7 +82,7 @@ namespace MikuExpansion.Helpers
                     (I)typeof(I).GetRuntimeProperty("Instance").GetValue(null));
 #else
                 var test = new NotNullable<I>(
-                    (I)typeof(I).GetProperty("Instance", System.Reflection.BindingFlags.Static)
+                    (I)typeof(I).GetProperty("Instance", BindingFlags.Static)
                                 .GetValue(null, null));
 #endif
                 Info = test.Value != null ? test : new NotNullable<I>(new I());
@@ -169,7 +169,7 @@ namespace MikuExpansion.Helpers
             if (lambdaType.Equals(target))
                 return true;
 
-#if WINDOWS_PHONE_APP || WINDOWS_STORE || SILVERLIGHT || WINDOWS_UWP
+#if WINDOWS_RT || SILVERLIGHT || WINDOWS_UWP
             bool isASubClass = target.GetTypeInfo().IsSubclassOf(lambdaType);
 #else
             bool isASubClass = target.IsInstanceOfType(lambdaType);

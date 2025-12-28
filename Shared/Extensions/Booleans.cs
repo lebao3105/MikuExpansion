@@ -1,10 +1,4 @@
-﻿#if SILVERLIGHT
-using System.Windows;
-#elif WINDOWS_STORE || WINDOWS_PHONE_APP || WINDOWS_UWP
-using Windows.UI.Xaml;
-#endif
-
-namespace MikuExpansion.Extensions
+﻿namespace MikuExpansion.Extensions
 {
     public static class Booleans
     {

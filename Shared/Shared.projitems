@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>16e5bc5c-679a-49ee-b67c-c0bd4045a759</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>Shared</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Extensions\Booleans.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extensions\Strings.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extensions\Visibilities.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Helpers\Settings.cs" />
+    <None Include="Helpers\BoolToVisibility.cs" />
+    <Compile Include="Helpers\Exceptions.cs" />
+    <Compile Include="Helpers\FSLikeOperations.cs" />
+    <Compile Include="Helpers\Json.cs" />
+    <Compile Include="Helpers\MultiTypes.cs" />
+    <Compile Include="Helpers\NotNullable.cs" />
+  </ItemGroup>
+</Project>
