@@ -1,6 +1,5 @@
-﻿#if SILVERLIGHT || WINDOWS_PHONE || WINDOWS_PHONE_APP || WINDOWS_UWP
-
-using System;
+﻿using System;
+using MikuExpansion.Extensions;
 
 #if SILVERLIGHT
 using System.Windows;
@@ -15,8 +14,8 @@ namespace MikuExpansion.UI
 {
     public partial class RTextBlock : UserControl
     {
-        public static DependencyProperty TextProperty = DependencyProperty.Register(
-            "Text", typeof(string), typeof(RTextBlock), new PropertyMetadata(null));
+        public static DependencyProperty TextProperty =
+            UIExts.RegisterDepProperty<string, RTextBlock>(nameof(Text), defaultValue: null);
 
         public string Text
         {
@@ -40,6 +39,7 @@ namespace MikuExpansion.UI
             timer.Stop();
         }
 
+#pragma warning disable 0618
         private void scrollviewer_Loaded(object sender, RoutedEventArgs e)
         {
             timer.Tick += (ss, ee) =>
@@ -52,7 +52,6 @@ namespace MikuExpansion.UI
             };
             timer.Start();
         }
+#pragma warning restore 0618
     }
 }
-
-#endif

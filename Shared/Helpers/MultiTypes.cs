@@ -72,12 +72,12 @@ namespace MikuExpansion.Helpers
     {
         private object Value;
         private NotNullable<I> Info;
-        
+
         public MultiType()
         {
             try
             {
-#if WINDOWS_UWP || WINDOWS_STORE || WINDOWS_PHONE_APP
+#if WINDOWS_RT
                 var test = new NotNullable<I>(
                     (I)typeof(I).GetRuntimeProperty("Instance").GetValue(null));
 #else
@@ -126,7 +126,7 @@ namespace MikuExpansion.Helpers
             // return the casted value
             if (GetValueType().Equals(target))
                 return (T)Value;
-            
+
             if (Info.Value.Types != null &&
                 Info.Value.Types.Any(p => IsTypePresent(target, p.Key)))
                 return (T)Value;
@@ -169,11 +169,7 @@ namespace MikuExpansion.Helpers
             if (lambdaType.Equals(target))
                 return true;
 
-#if WINDOWS_RT || SILVERLIGHT || WINDOWS_UWP
             bool isASubClass = target.GetTypeInfo().IsSubclassOf(lambdaType);
-#else
-            bool isASubClass = target.IsInstanceOfType(lambdaType);
-#endif
             return Info.Value.AllowSubTypes && isASubClass;
         }
     }

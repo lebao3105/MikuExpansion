@@ -1,12 +1,11 @@
-﻿#if SILVERLIGHT || WINDOWS_PHONE || WINDOWS_PHONE_APP || WINDOWS_UWP
-using System;
-using System.Globalization;
+﻿using System;
 using MikuExpansion.Extensions;
 
 #if SILVERLIGHT
+using System.Globalization;
 using System.Windows;
 using System.Windows.Data;
-#elif WINDOWS_PHONE_APP || WINDOWS_UWP
+#else
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Data;
 #endif
@@ -37,4 +36,3 @@ namespace MikuExpansion.Helpers
             => value.Equals(Visibility.Visible);
     }
 }
-#endif

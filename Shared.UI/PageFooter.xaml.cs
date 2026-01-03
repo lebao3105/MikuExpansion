@@ -1,8 +1,5 @@
-﻿#if SILVERLIGHT || WINDOWS_PHONE || WINDOWS_PHONE_APP || WINDOWS_UWP
-
-using MikuExpansion.Extensions;
-using static MikuExpansion.Resources.Strings; // worst practice
-using System.Linq;
+﻿using MikuExpansion.Extensions;
+using static MikuExpansion.Resources.Strings;
 
 #if SILVERLIGHT
 using System.Windows;
@@ -17,22 +14,22 @@ namespace MikuExpansion.UI
     /// <summary>
     /// Footer for Pages.
     /// </summary>
-    public sealed partial class Footer : Grid
+    public sealed partial class PageFooter : Grid
     {
-#region Click events
+        #region Click events
         public delegate void OnBackPushDlg();
         public delegate void OnForwardPushDlg();
 
         /// <summary>
         /// Back button click event.
-        /// <see cref="quitInsteadOfBack"/>  only changes the content of
+        /// <see cref="QuitInsteadOfBack"/>  only changes the content of
         /// the back button itself, and does not make the application quit
         /// or back (using <see cref="System.Windows.Navigation.NavigationService.GoBack"/>
         /// or related) either.
         /// You do that instead, along with anything else you want.
         /// </summary>
         /// <seealso cref="OnForwardPush"/>
-        /// <seealso cref="quitInsteadOfBack"/>
+        /// <seealso cref="QuitInsteadOfBack"/>
         public event OnBackPushDlg OnBackPush;
 
         /// <summary>
@@ -42,37 +39,37 @@ namespace MikuExpansion.UI
         /// </summary>
         /// <seealso cref="OnBackPush"/>
         public event OnForwardPushDlg OnForwardPush;
-#endregion
+        #endregion
 
-#region DependencyProperties
-        public static DependencyProperty quitInsteadOfBackProperty =
-            DependencyProperty.Register("quitInsteadOfBack", typeof(bool), typeof(Footer), new PropertyMetadata(false));
+        #region DependencyProperties
+        public static DependencyProperty QuitInsteadOfBackProperty =
+            DependencyProperty.Register("QuitInsteadOfBack", typeof(bool), typeof(PageFooter), new PropertyMetadata(false));
 
-        public static DependencyProperty allowContinuingProperty =
-            DependencyProperty.Register("allowContinuing", typeof(bool), typeof(Footer), new PropertyMetadata(true));
+        public static DependencyProperty AllowContinuingProperty =
+            DependencyProperty.Register("AllowContinuing", typeof(bool), typeof(PageFooter), new PropertyMetadata(true));
 
         public static DependencyProperty BackTextProperty =
-            DependencyProperty.Register("BackText", typeof(string), typeof(Footer), new PropertyMetadata(null));
+            DependencyProperty.Register("BackText", typeof(string), typeof(PageFooter), new PropertyMetadata(null));
 
         public static DependencyProperty ContinueTextProperty =
-            DependencyProperty.Register("ContinueText", typeof(string), typeof(Footer), new PropertyMetadata(Forward));
-#endregion
+            DependencyProperty.Register("ContinueText", typeof(string), typeof(PageFooter), new PropertyMetadata(Forward));
+        #endregion
 
-#region Properties
+        #region Properties
         /// <summary>
         /// Indicates whether the application should quit instead of
         /// going back to the previous page. Also changes the back
         /// button content.
         /// </summary>
         /// <seealso cref="OnBackPush"/>
-        public bool quitInsteadOfBack
+        public bool QuitInsteadOfBack
         {
-            get { return (bool)GetValue(quitInsteadOfBackProperty); }
+            get { return (bool)GetValue(QuitInsteadOfBackProperty); }
             set
             {
-                SetValue(quitInsteadOfBackProperty, value);
+                SetValue(QuitInsteadOfBackProperty, value);
                 // User defined string
-                if (!new string[] { Back, Quit }.Contains(BackText))
+                if ((BackText != Back) && (BackText != Quit))
                     return;
                 BackText = value ? Quit : Back;
             }
@@ -81,11 +78,12 @@ namespace MikuExpansion.UI
         /// <summary>
         /// If this is true, the forward button will be disabled.
         /// </summary>
-        public bool allowContinuing
+        public bool AllowContinuing
         {
-            get { return (bool)GetValue(allowContinuingProperty); }
-            set {
-                SetValue(allowContinuingProperty, value);
+            get { return (bool)GetValue(AllowContinuingProperty); }
+            set
+            {
+                SetValue(AllowContinuingProperty, value);
                 forwardBtn.Visibility = value.ToVisibility(); // TODO: Never have to do this anymore
             }
         }
@@ -101,9 +99,9 @@ namespace MikuExpansion.UI
             get { return (string)GetValue(ContinueTextProperty); }
             set { SetValue(ContinueTextProperty, value); }
         }
-#endregion
+        #endregion
 
-        public Footer()
+        public PageFooter()
         {
             DataContext = this;
             this.InitializeComponent();
@@ -120,5 +118,3 @@ namespace MikuExpansion.UI
         }
     }
 }
-
-#endif

@@ -1,4 +1,4 @@
-﻿#if SILVERLIGHT || WINDOWS_RT || WINDOWS_UWP
+﻿#if SILVERLIGHT || WINDOWS_RT
 using System.ComponentModel;
 
 #if SILVERLIGHT
@@ -13,11 +13,11 @@ namespace MikuExpansion.Helpers
 {
     /// <summary>
     /// A application settings entry.
-    /// 
+    ///
     /// It can notify changed events (NOT from outside this instance of
     /// <see cref="SettingEntry{T}"/> itself), can be used for a direct
     /// data binding, can check if the entry exists with <see cref="Exists(string)"/>.
-    /// 
+    ///
     /// You can make rely-on mechanism by using the changed event;)
     /// </summary>
     /// <typeparam name="T"></typeparam>
@@ -48,10 +48,7 @@ namespace MikuExpansion.Helpers
 
         public T Value
         {
-            get
-            {
-
-            }
+            get { return GetSetting<T>(Key); }
             set
             {
                 if (value.Equals(Value))
@@ -81,9 +78,9 @@ namespace MikuExpansion.Helpers
             localSettings.Values.ContainsKey(key);
 #endif
 
-        public static T GetSetting<T>(string key) =>
+        public static T1 GetSetting<T1>(string key) =>
 #if !SILVERLIGHT
-                Exists(key) ? (T)localSettings.Values[key] : default(T);
+                Exists(key) ? (T1)localSettings.Values[key] : default(T1);
 #else
                 Exists(key) ? (T)localSettings[key] : default(T);
 #endif

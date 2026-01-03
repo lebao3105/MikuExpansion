@@ -1,6 +1,4 @@
-﻿#if SILVERLIGHT || WINDOWS_PHONE || WINDOWS_PHONE_APP || WINDOWS_UWP
-
-using System;
+﻿using System;
 using System.Linq;
 
 #if SILVERLIGHT
@@ -15,16 +13,16 @@ using Windows.UI.Xaml.Media.Animation;
 
 namespace MikuExpansion.UI
 {
-    public sealed partial class TitleBar : UserControl
+    public sealed partial class PageTitle : UserControl
     {
         public static readonly DependencyProperty
             TitleProperty = DependencyProperty.Register(
-                "Title", typeof(string), typeof(TitleBar), null
+                "Title", typeof(string), typeof(PageTitle), null
             );
 
         public static readonly DependencyProperty
             SectionProperty = DependencyProperty.Register(
-                "Section", typeof(string), typeof(TitleBar), null
+                "Section", typeof(string), typeof(PageTitle), null
             );
 
         /// <summary>
@@ -52,7 +50,7 @@ namespace MikuExpansion.UI
 
         private string[] Titles = null;
 
-        public TitleBar()
+        public PageTitle()
         {
             InitializeComponent();
             DataContext = this;
@@ -101,5 +99,3 @@ namespace MikuExpansion.UI
         }
     }
 }
-
-#endif

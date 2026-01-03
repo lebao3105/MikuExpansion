@@ -6,12 +6,32 @@
     <SharedGUID>9358345e-5f11-4114-9836-26dfb91d3f71</SharedGUID>
   </PropertyGroup>
   <PropertyGroup Label="Configuration">
-    <Import_RootNamespace>Shared.UI</Import_RootNamespace>
+    <Import_RootNamespace>MikuExpansion.UI</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="$(MSBuildThisFileDirectory)Footer.xaml.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)RTextBlock.xaml.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)TitleBar.xaml.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)PageFooter.xaml.cs">
+      <DependentUpon>PageFooter.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)PageTitle.xaml.cs">
+      <DependentUpon>PageTitle.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)RTextBlock.xaml.cs">
+      <DependentUpon>RTextBlock.xaml</DependentUpon>
+    </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)WebLinkButton.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="$(MSBuildThisFileDirectory)PageFooter.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)PageTitle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)RTextBlock.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
 </Project>

@@ -2,7 +2,7 @@
 
 #if SILVERLIGHT
 using System.IO.IsolatedStorage;
-#elif WINDOWS_PHONE_APP || WINDOWS_UWP || WINDOWS_APP
+#else
 using Windows.Storage;
 #endif
 

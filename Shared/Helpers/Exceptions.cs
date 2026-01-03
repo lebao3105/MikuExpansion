@@ -58,11 +58,7 @@ namespace MikuExpansion.Helpers
 
         private void ActualInit(Type type)
         {
-#if WINDOWS_PHONE_APP || WINDOWS_STORE || SILVERLIGHT || WINDOWS_UWP
             bool isASubClass = type.GetTypeInfo().IsSubclassOf(typeof(Attribute));
-#else
-            bool isASubClass = type.IsInstanceOfType(typeof(Attribute));
-#endif
             if (!isASubClass)
                 throw new InvalidOperationException($"{nameof(type)} does not derive from System.Attribute");
 

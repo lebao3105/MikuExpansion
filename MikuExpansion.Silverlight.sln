@@ -9,7 +9,7 @@ Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Shared", "Shared\Shared.shp
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Shared.UI", "Shared.UI\Shared.UI.shproj", "{9358345E-5F11-4114-9836-26DFB91D3F71}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MikuExpansion.Silverlight", "MikuExpansion\MikuExpansion.Silverlight.csproj", "{979FB64E-3DDE-4BEF-B967-AE27863FBEF2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MikuExpansion.Silverlight", "MikuExpansion\Silverlight\MikuExpansion.Silverlight.csproj", "{979FB64E-3DDE-4BEF-B967-AE27863FBEF2}"
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
